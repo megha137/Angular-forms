@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Angular-forms';
+  Submitted:boolean;
+  RegisterForm = new FormGroup({
+  Fname:  new FormControl('',Validators.required),
+  Lname: new FormControl('',Validators.required)})
+   updateProfile() {
+    this.RegisterForm.setValue({Fname: 'Megha',Lname: 'Shelar'})
+  }
+
 }
